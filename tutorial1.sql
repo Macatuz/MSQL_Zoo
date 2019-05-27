@@ -55,4 +55,25 @@
   
   ---------------------------
   
+  SELECT name
+  FROM world
+  WHERE capital LIKE '%City' 
+  
+  
+  ---------------------------
+  
+  SELECT capital, name FROM world WHERE capital LIKE CONCAT('%',name,'%')
+  
+  ---------------------------
+  
+  SELECT capital,name FROM world
+  WHERE CHAR_LENGTH(capital)  > CHAR_LENGTH(name) AND capital LIKE CONCAT('%',name,'%')
+  
+  ---------------------------
+  
+  SELECT name,REPLACE(capital,name,'') AS ext FROM world
+  WHERE  capital LIKE CONCAT('%',name,'%') AND CHAR_LENGTH(capital)  > CHAR_LENGTH(name) 
+  
+  
+  
   
